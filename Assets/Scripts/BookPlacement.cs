@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Utils;
 
 public class BookPlacement : MonoBehaviour
 {
@@ -8,29 +11,36 @@ public class BookPlacement : MonoBehaviour
     
     public int bookAmount = 5;
 
-    public float horizontalBookOffset = 0.4f;
+    public float horizontalBookOffset = 0.13f;
     
-    private List<GameObject> _books = new();
+    [HideInInspector]
+    public List<GameObject> books = new();
 
     private int _booksAdded = 0;
+
+    public Vector3 startPos = new Vector3(0.6f, 4.7f, 1.6f);
     
     // UI
     [SerializeField] private GameObject addBookUI;
+    [SerializeField] private TMP_InputField bookLinkInput;
     
     private void Start()
     {
-        float lastX = 0f;
+        float lastX = horizontalBookOffset;
         
         for (int i = 0; i < bookAmount; i++)
         {  
-            Vector3 bookPos = new Vector3(lastX + horizontalBookOffset, transform.position.y, transform.position.z); 
-            GameObject book = Instantiate(bookPrefab, bookPos, Quaternion.identity);
+            GameObject book = Instantiate(bookPrefab, startPos + new Vector3(lastX + horizontalBookOffset, 0f, 0f), Quaternion.identity);
+            book.transform.SetParent(transform, true);
+
             book.SetActive(false);
-            _books.Add(book);
+            books.Add(book);
+            
+            lastX = book.transform.position.x;
         }
     }
 
-    public void AddBook()
+    public void BeginAddBook()
     {
         if (_booksAdded >= bookAmount)
         {
@@ -38,14 +48,25 @@ public class BookPlacement : MonoBehaviour
             return;
         }
         
-        _books[_booksAdded].SetActive(true);
+        books[_booksAdded].SetActive(true);
         addBookUI.SetActive(true);
         PlayerState.DisableMovement();
 
-        // TODO: if book addition is canceled, don't add to booksAdded
-        // potential solution:
-        // - only add 1 to booksAdded when 'add book' button is pressed
-        // - hide _books[_booksAdded] when book addition is cancelled
+        // TODO: hide _books[_booksAdded] when book addition is cancelled
+    }
+
+    public void FinalizeBookAddition()
+    {
+        addBookUI.SetActive(false);
+        
+        GameObject book = books[_booksAdded];
+        BookInfo bookInfo = book.AddComponent<BookInfo>();
+        bookInfo.link = LinkProcessing.FormatLink(bookLinkInput.text);
+
+        BookReference bookReference = new BookReference(this, _booksAdded);
+        book.GetComponent<BookInteract>().InitializeBookInteraction(bookReference);
+        
+        PlayerState.EnableMovement();
         _booksAdded++;
     }
 }

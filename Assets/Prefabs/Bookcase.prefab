@@ -109,7 +109,9 @@ MonoBehaviour:
   bookPrefab: {fileID: 539178060077450676, guid: 23520243aaa6c694d85a80625ebcb01c, type: 3}
   bookAmount: 5
   horizontalBookOffset: 0.4
+  startPos: {x: 0.6, y: 4.7, z: 1.6}
   addBookUI: {fileID: 0}
+  bookLinkInput: {fileID: 0}
 --- !u!114 &8963178834646906445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +690,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1541430952930994302}
         m_TargetAssemblyTypeName: BookPlacement, Assembly-CSharp
-        m_MethodName: AddBook
+        m_MethodName: BeginAddBook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

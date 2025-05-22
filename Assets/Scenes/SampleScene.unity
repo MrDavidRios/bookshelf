@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 60295396}
   - component: {fileID: 60295395}
   - component: {fileID: 60295394}
+  - component: {fileID: 60295397}
   m_Layer: 5
   m_Name: Open
   m_TagString: Untagged
@@ -494,7 +495,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 60295395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 60295397}
+        m_TargetAssemblyTypeName: UI.OpenBookLink, Assembly-CSharp
+        m_MethodName: OpenBookInBrowser
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &60295395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +546,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60295392}
   m_CullTransparentMesh: 1
+--- !u!114 &60295397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60295392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef2a44189734250b8c5101a960e5fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &64575713
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1016,7 @@ GameObject:
   - component: {fileID: 475423337}
   - component: {fileID: 475423336}
   - component: {fileID: 475423340}
+  - component: {fileID: 475423341}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1095,6 +1121,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b3e0e236f9a8648871868d201c8524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &475423341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475423335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb526ad756441369acc078357c1bdcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewUI: {fileID: 1131655757}
+  viewUITitle: {fileID: 1289951560}
 --- !u!1 &511063462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2068,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2026317484}
+        m_TargetAssemblyTypeName: PlayerState, Assembly-CSharp
+        m_MethodName: EnableMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1136558456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2906,7 +2958,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1311931324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2024814165}
+        m_TargetAssemblyTypeName: BookPlacement, Assembly-CSharp
+        m_MethodName: FinalizeBookAddition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1311931324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3035,6 +3099,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1131655757}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2026317484}
+        m_TargetAssemblyTypeName: PlayerState, Assembly-CSharp
+        m_MethodName: EnableMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3806,7 +3882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1764250947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4028,6 +4104,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2024814165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1541430952930994302, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
+  m_PrefabInstance: {fileID: 2815597691070575907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f67bba35ef901a4085628d9fda24741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2026317482
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,6 +4124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026317483}
+  - component: {fileID: 2026317484}
   m_Layer: 0
   m_Name: Player State Manager
   m_TagString: Untagged
@@ -4059,6 +4147,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026317484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026317482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c991e93d9fbd7e4cb45a91c3a15f519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098976501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,6 +4223,26 @@ PrefabInstance:
       propertyPath: addBookUI
       value: 
       objectReference: {fileID: 899551826}
+    - target: {fileID: 1541430952930994302, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
+      propertyPath: startPos.x
+      value: -0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541430952930994302, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
+      propertyPath: startPos.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541430952930994302, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
+      propertyPath: startPos.z
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541430952930994302, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
+      propertyPath: bookLinkInput
+      value: 
+      objectReference: {fileID: 1723745073}
+    - target: {fileID: 1541430952930994302, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
+      propertyPath: horizontalBookOffset
+      value: 0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 3860614716116400549, guid: 0dd46f02088921445b0d8a2c5d7f3963, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
